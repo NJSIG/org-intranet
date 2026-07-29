@@ -8,9 +8,12 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Employees } from './collections/Employees'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+
+const collections = [Users, Media, Employees]
 
 export default buildConfig({
   admin: {
@@ -18,8 +21,11 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    timezones: {
+      defaultTimezone: 'America/New_York',
+    },
   },
-  collections: [Users, Media],
+  collections,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

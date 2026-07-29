@@ -9,7 +9,6 @@ import {
   RenderCustomComponent,
   useField,
 } from '@payloadcms/ui'
-import { RenderComponent } from '@payloadcms/ui/elements/RenderComponent'
 import { NumberFieldClientProps, TextFieldClientProps } from 'payload'
 import { useCallback, useMemo } from 'react'
 import { PatternFormat, PatternFormatProps } from 'react-number-format'

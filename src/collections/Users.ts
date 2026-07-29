@@ -1,9 +1,10 @@
 import { admin, editor } from '@/access'
+import { User } from '@/payload-types'
 import type { CollectionConfig } from 'payload'
 
 export const Users: CollectionConfig = {
   slug: 'users',
-
+  auth: true,
   access: {
     create: admin,
     delete: admin,
@@ -13,8 +14,14 @@ export const Users: CollectionConfig = {
   admin: {
     useAsTitle: 'email',
     group: 'Administration',
+    hidden: ({ user }) => {
+      if (!user) {
+        return true
+      }
+
+      return (user as User).role !== 'admin'
+    },
   },
-  auth: true,
   fields: [
     // Email added by default
     // Add more fields as needed
