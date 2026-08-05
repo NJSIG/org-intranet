@@ -23,7 +23,15 @@ export const Employees: CollectionConfig<'employees'> = {
   trash: true,
   folders: true,
   admin: {
-    defaultColumns: ['portrait', 'name', 'title', 'department', 'desk letter', 'alpha-split'],
+    defaultColumns: [
+      'portrait',
+      'first name',
+      'last name',
+      'title',
+      'department',
+      'desk letter',
+      'alpha-split',
+    ],
     useAsTitle: 'name',
 
     defaultPopulate: {
@@ -142,7 +150,7 @@ export const Employees: CollectionConfig<'employees'> = {
               },
               //this field will only show up if type of employee is Underwriting
               {
-                name: 'alpha split',
+                name: 'alpha-split',
                 type: 'text',
                 required: true,
                 admin: {

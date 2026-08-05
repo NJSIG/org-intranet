@@ -10,6 +10,8 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Employees } from './collections/Employees'
 
+import { admin } from './access'
+
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
@@ -28,6 +30,15 @@ export default buildConfig({
   collections,
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
+  localization: {
+    locales: [
+      {
+        label: 'English',
+        code: 'en',
+      },
+    ],
+    defaultLocale: 'en',
+  },
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
@@ -37,6 +48,7 @@ export default buildConfig({
       dbName: 'payload',
     },
   }),
+
   sharp,
   plugins: [
     // storage-adapter-placeholder
