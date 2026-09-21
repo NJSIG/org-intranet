@@ -11,11 +11,12 @@ import { Media } from './collections/Media'
 import { Employees } from './collections/Employees'
 
 import { admin } from './access'
+import { EmployeePortraits } from './collections/EmployeePortraits'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-const collections = [Users, Media, Employees]
+const collections = [Users, Media, Employees, EmployeePortraits]
 
 export default buildConfig({
   admin: {

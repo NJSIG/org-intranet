@@ -108,7 +108,7 @@ export const PatternComponent: React.FC<Props> = (props) => {
       />
 
       <div className={`${fieldBaseClass}__wrap`}>
-        <RenderComponent
+        <RenderCustomComponent
           CustomComponent={Error}
           Fallback={<FieldError path={path} showError={showError} />}
         />
